@@ -3,7 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class CustomUser(AbstractUser):
-    pass
+    department = models.CharField(max_length=50, default='', null=True, blank=True)
+    employee_cell_phone = models.CharField(max_length=50, default='', null=True, blank=True)
 
     def __str__(self):
         return self.username
