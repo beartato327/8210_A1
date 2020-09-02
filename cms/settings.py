@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -133,5 +134,13 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+env.setVar()
+# SMTP Mailgun
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = 'postmaster@sandbox4b111cdcbfa6409e88b1263dd166eb5b.mailgun.org'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
 
 django_heroku.settings(locals())
