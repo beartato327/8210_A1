@@ -139,8 +139,8 @@ env.setVar()
 # SMTP Mailgun
 EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_PORT = 587 
-EMAIL_HOST_USER = 'postmaster@sandbox4b111cdcbfa6409e88b1263dd166eb5b.mailgun.org'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
 
 django_heroku.settings(locals())
