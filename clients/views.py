@@ -10,6 +10,9 @@ class ClientListView(LoginRequiredMixin,ListView):
     model = Client
     template_name = 'client_list.html'
 
+    def get_queryset(self):
+        return Client.objects.filter(author=self.request.user)
+
 class ClientUpdateView(LoginRequiredMixin,UpdateView):
     model = Client
     fields = ('name', 'notes', 'address', 'city', 'state', 'zipcode', 'email', 'cell_phone', 'acct_number')
