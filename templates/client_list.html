@@ -21,7 +21,7 @@
         <a href="{% url 'client_edit' client.pk %}">Edit</a> |
         <a href="{% url 'client_delete' client.pk %}">Delete</a> |
         <a href="{% url 'comment_new' client.pk %}">New Comment</a> |
-        <a href="{% url 'vehicle_detail' client.pk %}">Vehicle Details</a>
+        <a href="{% url 'vehicle_list' %}">Vehicle Details</a>
       </div>
       <div class="card-footer">
         {% for comment in client.comments.all %}
