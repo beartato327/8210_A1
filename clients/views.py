@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class ClientListView(LoginRequiredMixin,ListView):
     model = Client
     template_name = 'client_list.html'
+    login_url = 'login'
 
     def get_queryset(self):
         return Client.objects.filter(author=self.request.user)

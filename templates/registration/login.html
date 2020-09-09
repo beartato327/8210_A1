@@ -3,10 +3,29 @@
 {% block title %}CMS Solutions | {{section.title}}{% endblock title%}
 
 {% block content %}
-    <h2>Log In</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button class="btn btn-success ml-2" type="submit">Log In</button>
-    </form>
+<style>
+    #signin{
+        max-width: 380px;
+        padding: 15px 35px 45px;
+        margin: 0 auto;
+        background-color: #343a40;
+        border: 1px solid rgba(0,0,0,0.1); 
+        color: white; 
+    }
+    p{
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;	
+    }
+</style>
+    <div id="signin">
+        <h2>Log In</h2>
+        <form id="form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-success ml-2" type="submit">Log In</button>
+            <a href="{% url 'password_reset' %}" class="btn btn-danger ">Forgot your password?</a>
+        </form>
+    </div>
 {% endblock content %}

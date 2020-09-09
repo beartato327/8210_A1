@@ -10,31 +10,27 @@
 
         <title>{% block name %}CMS App{% endblock name %}</title>
        
+        <script src="https://kit.fontawesome.com/49078f8b51.js" crossorigin="anonymous"></script>
     </head>
     <body>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
         <a class="navbar-brand" style="margin-left: 20%;" href="{% url 'home' %}">Client Management System</a>
-        {% if user.is_authenticated %}
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a href="{% url 'client_new' %}">+ New</a></li>
-          </ul>
-        {% endif %}
         <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#navbarCollapse" aria-controls="navbarCollapse"
         aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-right: 20%;">
           {% if user.is_authenticated %}
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="#" id="userMenu"\
+                <a style="color:white;" class="nav-link dropdown-toggle" href="#" id="userMenu"\
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded\
                 ="false">
-                  {{ user.username }}
+                <i class="fas fa-user-circle"></i> {{ user.username }}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right"
-                aria-labelledby="userMenu">
+                aria-labelledby="userMenu" style="margin-right: 20%;">
                   <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="{% url 'logout' %}">
@@ -43,8 +39,8 @@
               </li>
             </ul>
           {% else %}
-            <form class="form-inline ml-auto" style="margin-right: 30%;">
-              <a href="{% url 'login' %}" class="btn btn-outline-secondary">
+            <form class="form-inline ml-auto" >
+              <a href="{% url 'login' %}" style="color:white; border-color:white;" class="btn btn-outline-secondary">
               Log In</a>
               <a href="{% url 'signup' %}" class="btn btn-primary ml-2">
               Sign up</a>

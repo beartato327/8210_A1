@@ -3,7 +3,7 @@
 {% block title %}Vehicles{% endblock title %}
 
 {% block content %}
-  <h2><a href="{% url 'vehicle_new' %}">Add New</a></h2>
+  <a class="btn btn-info btn-lg" href="{% url 'vehicle_new' %}">Add New Vehicle <i class="fas fa-car"></i></a>
   {% for vehicle in object_list %}
     <div class="card">
       <div class="card-header">
